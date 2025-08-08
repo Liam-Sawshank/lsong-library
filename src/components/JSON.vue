@@ -11,26 +11,7 @@
       <!-- Activity 6: Render a list containing author names and their birth years. Hint: Make use of the v-for directive to iterate through the array of authors. -->
       <!-- TODO: CODE TO RENDER LIST OF AUTHORS HERE -->
       <ul>
-        <li
-          v-for="author in authors"
-          :key="author.id"
-          :class="{ highlight: author.name === 'George Orwell' }"
-          :style="
-            author.name === 'George Orwell'
-              ? {
-                  fontWeight: '700',
-                  fontStyle: 'italic',
-                  color: '#2c3e50',
-                  backgroundColor: '#e0f7fa',
-                  border: '2px dashed #42b883',
-                  borderRadius: '6px',
-                  padding: '6px',
-                }
-              : {}
-          "
-          :title="author.name === 'George Orwell' ? 'Highlighted author' : 'Author'"
-          aria-role="listitem"
-        >
+        <li v-for="author in authors" :key="author.id">
           {{ author.name }} ({{ author.birthYear }})
         </li>
       </ul>
@@ -125,6 +106,29 @@
     <section class="lab-section">
       <h2>Attribute, Class and Style Binding with <code>v-bind</code></h2>
       <p>Highlighting Specific Authors:</p>
+      <ul>
+        <li
+          v-for="author in authors"
+          :key="author.id"
+          :class="{ highlight: author.name === 'George Orwell' }"
+          :style="
+            author.name === 'George Orwell'
+              ? {
+                  fontWeight: '700',
+                  fontStyle: 'italic',
+                  color: '#2c3e50',
+                  backgroundColor: '#e0f7fa',
+                  border: '2px dashed #42b883',
+                  borderRadius: '6px',
+                  padding: '6px',
+                }
+              : {}
+          "
+          :title="author.name === 'George Orwell' ? 'Highlighted author' : 'Author'"
+        >
+          {{ author.name }} ({{ author.birthYear }})
+        </li>
+      </ul>
     </section>
   </div>
 </template>
